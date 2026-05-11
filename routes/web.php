@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\PegawaiDBController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,3 +51,5 @@ Route::get('/tugaspertemuan5', function () {
 Route::get('/menu', function () {
     return view('menu');
 });
+
+Route::get('/pegawai', [PegawaiDBController::class, 'index']);
