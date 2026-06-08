@@ -1,17 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class TasDBController extends Controller
 {
     // Menampilkan data tas
     public function index()
     {
         $tas = DB::table('tas')->paginate(10);
-
         return view('tas.index', ['tas' => $tas]);
     }
 
@@ -19,11 +16,9 @@ class TasDBController extends Controller
     public function cari(Request $request)
     {
         $cari = $request->cari;
-
         $tas = DB::table('tas')
             ->where('merktas', 'like', "%" . $cari . "%")
             ->paginate();
-
         return view('tas.index', ['tas' => $tas]);
     }
 
@@ -41,7 +36,6 @@ class TasDBController extends Controller
             'stocktas' => $request->stocktas,
             'tersedia' => $request->tersedia
         ]);
-
         return redirect('/tas');
     }
 
@@ -65,7 +59,6 @@ class TasDBController extends Controller
                 'stocktas' => $request->stocktas,
                 'tersedia' => $request->tersedia
             ]);
-
         return redirect('/tas');
     }
 
@@ -75,7 +68,6 @@ class TasDBController extends Controller
         DB::table('tas')
             ->where('kodetas', $id)
             ->delete();
-
         return redirect('/tas');
     }
 }
