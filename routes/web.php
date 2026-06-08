@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiDBController;
+use App\Http\Controllers\TasDBController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -59,3 +60,12 @@ Route::get('/pegawai/edit/{id}', [PegawaiDBController::class, 'edit']);
 Route::post('/pegawai/update', [PegawaiDBController::class, 'update']);
 Route::get('/pegawai/hapus/{id}', [PegawaiDBController::class, 'hapus']);
 Route::get('/pegawai/cari', [PegawaiDBController::class, 'cari']);
+
+
+Route::get('/tas', [TasDBController::class, 'index']);
+Route::get('/tas/tambah', [TasDBController::class, 'tambah']);
+Route::post('/tas/store', [TasDBController::class, 'store']);
+Route::get('/tas/edit/{id}', [TasDBController::class, 'edit']);
+Route::post('/tas/update', [TasDBController::class, 'update']);
+Route::get('/tas/hapus/{id}', [TasDBController::class, 'hapus']);
+Route::get('/tas/cari', [TasDBController::class, 'cari']);
