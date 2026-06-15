@@ -7,6 +7,7 @@ use App\Http\Controllers\TasDBController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\NilaiKuliahController;
 use App\Http\Controllers\KeranjangBelanjaController;
+use App\Http\Controllers\MyPegawaiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -92,3 +93,9 @@ Route::get('/keranjangbelanja', [KeranjangBelanjaController::class, 'index']);
 Route::get('/keranjangbelanja/tambah', [KeranjangBelanjaController::class, 'tambah']);
 Route::post('/keranjangbelanja/store', [KeranjangBelanjaController::class, 'store']);
 Route::get('/keranjangbelanja/hapus/{id}', [KeranjangBelanjaController::class, 'hapus']);
+
+//route CRUD my pegawai
+Route::get('/eas', [MyPegawaiController::class, 'index'])->name('mypegawai.index');
+Route::get('/eas/tambah', [MyPegawaiController::class, 'tambah'])->name('mypegawai.tambah');
+Route::post('/eas/store', [MyPegawaiController::class, 'store'])->name('mypegawai.store');
+Route::get('/eas/view/{id}', [MyPegawaiController::class, 'view'])->name('mypegawai.view');
